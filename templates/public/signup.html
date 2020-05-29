@@ -1,0 +1,60 @@
+{% extends "../base.html" %}
+
+{% block title %} Register  {% endblock %}
+
+{% block body %}
+
+<!--main-->
+<div class="main_btm">
+    <div class="wrap">
+    <div class="main">
+        <div class="contact">				
+                    <div class="col span_2_of_4">
+                      <div class="contact-form">
+                          <h2 class="style">Sign In To Your Account</h2>
+                            {% for message in messages %}
+                                <div style="color: red;">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                          <form method="POST" action="register">
+                                {% csrf_token %}
+					    	<div>
+						    	<span><label>FIRST NAME</label></span>
+						    	<span><input name="first_name" type="text" class="textbox" required></span>
+                            </div>
+                            <div>
+						    	<span><label>LAST NAME</label></span>
+						    	<span><input name="last_name" type="text" class="textbox" required></span>
+                            </div>
+                            <div>
+						    	<span><label>USERNAME</label></span>
+						    	<span><input name="username" type="text" class="textbox" required></span>
+						    </div>
+						    <div>
+						    	<span><label>E-MAIL</label></span>
+						    	<span><input name="email" type="text" class="textbox" required></span>
+                            </div>
+                            <div>
+						    	<span><label>PASSWORD</label></span>
+						    	<span><input name="password" type="password" class="textbox" required></span>
+                            </div>
+                            <div>
+						    	<span><label>CONFIRM PASSWORD</label></span>
+						    	<span><input name="confirm_password" type="password" class="textbox" required></span>
+						    </div>
+						
+						   <div>
+						   		<span><input type="submit" value="Submit Me!"></span>
+						  </div>
+					    </form>
+                        </div>
+                      </div>		
+                  <div class="clear"></div>
+              </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

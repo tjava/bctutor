@@ -1,0 +1,149 @@
+{% extends "../ubase.html" %}
+
+{% load static %}
+
+{% block title %}Dashboard - My Library{% endblock %}
+
+{% block body %}
+
+<div class="main-content">
+<div class="main-content-inner">
+<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+<ul class="breadcrumb">
+	<li>
+		<i class="ace-icon fa fa-tachometer home-icon"></i>
+		<a style="color: #D2691E" href="#">Dashboard</a>
+	</li>
+</ul><!-- /.breadcrumb -->
+
+</div>
+
+<div class="page-content">
+<div class="row">
+	<div class="col-xs-12">
+		<!-- PAGE CONTENT BEGINS -->
+		<div>
+			<div class="row search-page" id="search-page-1">
+				<div class="col-xs-12">
+					<div class="row">
+						
+<div class="col-xs-12 col-sm-9">
+<div class="row">
+<div style="background-color: whitesmoke!important" class="search-area  well-sm">
+<div style="background-color: #D2691E!important" class="search-filter-header text-center bg-primary">
+<h5 class=" ">
+	{% for message in messages %}
+		<div style="color: green;">
+			{{ message }}
+		</div>
+	{% endfor %}
+<span style="font-size: 18px!important" >Top Picks</span>
+</h5>
+</div>
+
+<div class="space-10"></div>
+
+<div id="my-slider" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#my-slider" data-slide-to="0" class="active"></li>
+		<li data-target="#my-slider" data-slide-to="1" ></li>
+	</ol>
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<img src="{% static 'profile/images/gallery/banner2.jpg' %}" alt="library">
+<div class="carousel-caption">
+<h1>Awesome Library</h1>
+</div>
+</div>
+<div class="item ">
+<img src="{% static 'profile/images/gallery/banner1.jpg' %}" alt="library">
+<div class="carousel-caption">
+<h1>Awesome Library</h1>
+</div>
+</div>
+</div>
+<a class="left carousel-control" href="#my-slider" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#my-slider" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+<div class="space-4"></div>
+</div>
+</div>
+
+<div class="row">
+{% for allcourse in allcourses %}
+	<div class="col-xs-6  col-md-4">
+	<div class="thumbnail search-thumbnail">
+
+	<div class="caption">
+
+	<div style="background-color: #8B4513!important; " class="no-margin-bottom search-filter-header text-center">
+										<h5 class="search-title">
+	<a href="#" style="color: white!important" class="">{{ allcourse.title }}</a>
+	</h5>
+	</div><br><br>
+
+
+	<span style="font-size: 17px">$</span> <span> {{ allcourse.price }}</span>
+	<div class="hr dotted"></div><br>
+	</div>
+	<a href="/single?id={{ allcourse.id }}" title=""><img class="media-object" src="{{ allcourse.image.url }}" /></a>
+	<hr>
+	<p>{{ allcourse.description }}</p>
+	</div>
+	</div>
+{% endfor %}
+
+</div>
+
+<div class="space-12"></div>
+</div>
+<div class="col-xs-12 col-sm-3">
+<div style="background-color: white!important" class="search-area  well-sm">
+<div style="background-color: #8B4513!important" class="search-filter-header text-center">
+<h5 class="">
+<span style="color: white!important; font-size: 18px" >Welcome</span>
+</h5>
+</div>
+
+<div class="space-10"></div>
+
+<div class="">
+<p style="font-size: 16px">
+Hello and Welcome to our Library. We are open:<br>
+<strong>Monday - Friday</strong><br>
+9:00am - 4:00pm<br>
+<strong>Saturday</strong> by special arrangement.<br><br>
+"... encouraging independent thought learning and opinion."<br>
+Each of you have been allocated a library card allowing you to take book from the library.
+"... encouraging independent thought learning and opinion."<br>
+Each of you have been allocated a library card allowing you to take book from the library.
+								"... encouraging independent thought learning and opinion."<br>
+								Each of you have been allocated a library card allowing you to take book from the library.
+								"... encouraging independent thought learning and opinion."<br>
+								Each of you have been allocated a library card allowing you to take book from the library.
+								
+								</p>
+</div>
+<div class="space-4"></div>
+</div>
+</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- PAGE CONTENT ENDS -->
+	</div><!-- /.col -->
+</div><!-- /.row -->
+</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+{% endblock %}

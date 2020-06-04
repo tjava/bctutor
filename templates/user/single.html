@@ -1,0 +1,46 @@
+{% extends "../ubase.html" %}
+
+{% load static %}
+
+{% block title %}Single{% endblock %}
+
+{% block body %}
+
+    <div class="main-content">
+        <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        
+        </div>
+        
+        <div class="page-content">
+            <div style="max-width: 100%; max-height: 100%; border: none">
+                
+            
+            <div class="thumbnail search-thumbnail">
+        
+        <div class="caption">
+        
+        <div style="background-color: #8B4513!important; " class="no-margin-bottom search-filter-header text-center">
+                                            <h5 class="search-title">
+        <a href="#" style="color: white!important" class="">{{ allcourse.title }}r</a>
+        </h5>
+        </div><br><br>
+        
+        
+        <span style="font-size: 17px">Author:</span> <span> {{ allcourse.price }}</span>
+        <div class="hr dotted"></div><br>
+        </div>
+        <img class="media-object" src="{{ allcourse.image.url }}" />
+        <hr>
+        <p>{{ allcourse.description }}</p>
+        <hr>
+        <span><h1>${{ allcourse.price }}</h1></span>
+        </div>
+        </div>
+        
+        
+        </div>
+        </div><!-- /.page-content -->
+    </div>
+
+{% endblock %}

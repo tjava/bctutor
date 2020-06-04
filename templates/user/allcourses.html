@@ -1,0 +1,59 @@
+{% extends "../ubase.html" %}
+
+{% block title %}All Courses{% endblock %}
+
+{% block body %}
+
+<div class="main-content">
+<div class="main-content-inner">
+<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+<ul class="breadcrumb">
+<li>
+<i class="ace-icon fa fa-book home-icon"></i>
+<a style="color: #D2691E" href="#">All Courses</a>
+</li>
+</ul><!-- /.breadcrumb -->
+{% for message in messages %}
+		<div style="color: green;">
+			{{ message }}
+		</div>
+	{% endfor %}
+{% for allcourse in allcourses %}
+    <div class="media search-media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" data-src="" alt="" src="{{ allcourse.image.url }}" style="width: 72px; height: 72px;">
+            </a>
+        </div>
+
+        <div class="media-body">
+            <div>
+                <h4 class="media-heading">
+                    <a href="#" class="blue">{{ allcourse.title }}</a>
+                </h4>
+            </div>
+            <p>{{ allcourse.description }}</p>
+
+            <div class="search-actions text-center">
+                <span class="text-info">$</span>
+
+                <span class="blue bolder bigger-150">{{ allcourse.price }}</span>
+                <div class="action-buttons bigger-125">
+                    <a href="/dashboard/editcourse?id={{ allcourse.id }}">
+                        <i class="ace-icon fa fa-pencil-square-o green"></i>
+                    </a>
+
+                    <a href="/dashboard/deletecourse?id={{ allcourse.id }}">
+                        <i class="ace-icon fa fa-trash red"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div><!-- /.page-content -->
+</div>
+</div>
+<br>
+<br>
+{% endblock %}

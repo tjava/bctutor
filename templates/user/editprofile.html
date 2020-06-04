@@ -1,0 +1,104 @@
+{% extends "../ubase.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+
+
+<div class="main-content">
+<div class="main-content-inner">
+<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+<ul class="breadcrumb">
+<li>
+<i class="ace-icon fa fa-pencil-square-o"></i>
+<a style="color: #D2691E" href="#">Edit Profile</a>
+</li>
+</ul><!-- /.breadcrumb -->
+
+</div>
+<div style="width: 90%;margin:auto; margin-top: 2%">
+<div class="col-xs-12" >
+
+	{% for message in messages %}
+		<div style="color: red;">
+			{{ message }}
+		</div>
+	{% endfor %}
+<form action="editprofile" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-8">Profile Picture</label>
+
+	<input type="file" name="image" value="" required>
+	</div>
+
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> First Name</label><br>
+		<input type="text" name="first_name" value="{{ user.first_name }}" style="width: 70%" >
+    </div>
+    
+    <hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> Last Name</label><br>
+		<input type="text" name="last_name" value="{{ user.last_name }}" style="width: 70%" >
+	</div>
+	
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> Facebook Profile Link</label><br>
+		<input type="text" name="fb_link" value="{{ userdetail.fb_link }}" style="width: 70%" >
+    </div>
+    
+    <hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> Whatsapp Number</label><br>
+		<input type="number" name="phone_number" value="{{ userdetail.phone_number }}" style="width: 70%" >
+	</div>
+
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> Area Of Specialization</label><br>
+		<input type="text" name="specialize" value="{{ userdetail.specialize }}" style="width: 70%" >
+	</div>
+
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> About Me</label><br>
+		<textarea name="about" style="width: 70%"  > {{ userdetail.about }}</textarea>
+	</div>
+
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> State</label><br>
+		<input type="text" name="state" value="{{ userdetail.state }}" style="width: 70%" >
+	</div>
+
+	<hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11"> City</label><br>
+		<input type="text" name="city" value="{{ userdetail.city }}" style="width: 70%" >
+	</div>
+    
+    <hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11">Password</label><br>
+		<input type="password" name="password" style="width: 70%" >
+	</div>
+    <hr style="width: 70%; margin-left: 0%">
+	<div>
+		<label for="form-field-11">Confirm Password</label><br>
+		<input type="password" name="confirm_password" style="width: 70%" >
+	</div>
+    <hr style="width: 70%; margin-left: 0%">
+    
+	<button type="submit" name="submit1" class="btn btn-default">Save Change</button>
+	</div>
+</form>									
+</div><!-- /.page-content -->
+</div>
+</div>
+
+{% endblock %}

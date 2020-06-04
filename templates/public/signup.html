@@ -21,19 +21,15 @@
                                 {% csrf_token %}
 					    	<div>
 						    	<span><label>FIRST NAME</label></span>
-						    	<span><input name="first_name" type="text" class="textbox" required></span>
+						    	<span><input name="first_name" type="text" class="textbox" value="{{ user.first_name }}" required></span>
                             </div>
                             <div>
 						    	<span><label>LAST NAME</label></span>
-						    	<span><input name="last_name" type="text" class="textbox" required></span>
+						    	<span><input name="last_name" type="text" class="textbox" value="{{ user.last_name }}" required></span>
                             </div>
-                            <div>
-						    	<span><label>USERNAME</label></span>
-						    	<span><input name="username" type="text" class="textbox" required></span>
-						    </div>
 						    <div>
 						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="email" type="text" class="textbox" required></span>
+						    	<span><input name="email" type="text" class="textbox" value="{{ user.email }}" required></span>
                             </div>
                             <div>
 						    	<span><label>PASSWORD</label></span>

@@ -21,11 +21,11 @@
                                 {% csrf_token %}
                                 <div>
                                     <span><label>Email</label></span>
-                                    <span><input name="username" type="text" class="textbox"></span>
+                                    <span><input name="email" type="text" value="{{ email }} " class="textbox" required></span>
                                 </div>
                                 <div>
                                     <span><label>PASSWORD</label></span>
-                                    <span><input name="password" type="password" class="textbox"></span>
+                                    <span><input name="password" type="password" class="textbox" required></span>
                                 </div>
                                <div>
                                        <span><input type="submit" value="Sign In"></span>

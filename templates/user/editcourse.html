@@ -1,6 +1,6 @@
 {% extends "../ubase.html" %}
 
-{% block title %}Add new course{% endblock %}
+{% block title %}Edit course{% endblock %}
 
 {% block body %}
 
@@ -10,8 +10,8 @@
 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 <ul class="breadcrumb">
 <li>
-<i class="ace-icon fa fa-book home-icon"></i>
-<a style="color: #D2691E" href="#">Add new course</a>
+<i class="ace-icon fa fa-user home-icon"></i>
+<a style="color: #D2691E" href="#">Edit course</a>
 </li>
 </ul><!-- /.breadcrumb -->
 
@@ -19,32 +19,33 @@
 <div style="width: 90%;margin:auto; margin-top: 2%">
 <div class="col-xs-12" >
 
-<form action="newcourse" method="post" enctype="multipart/form-data">
+<form action="editcourse?id={{ course.id }}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 	<hr>
 	<div>
 		<label for="form-field-8">Course Image</label>
 
-	<input type="file" name="image" value="" required>
+    <input type="file" name="image" value="">
+	<input type="hidden" name="image1" value="{{ course.image }}" style="width: 70%">
 	</div>
 
 	<hr style="width: 70%; margin-left: 0%">
 	<div>
 		<label for="form-field-11">Course Title</label><br>
-		<input type="text" name="title" style="width: 70%">
+		<input type="text" name="title" value="{{ course.title }}" style="width: 70%">
 	</div>
 	<hr style="width: 70%; margin-left: 0%">
 
 	<div>
 		<label for="form-field-11">Course Description</label><br>
-		<textarea name="description" style="width: 70%"></textarea>
+		<textarea name="description" value="" style="width: 70%">{{ course.description }}</textarea>
 
     </div>
     
     <hr style="width: 70%; margin-left: 0%">
 	<div>
 		<label for="form-field-11">Course Price</label><br>
-		<input type="number" name="price" style="width: 70%">
+		<input type="number" name="price" value="{{ course.price }}" style="width: 70%">
 	</div>
     <hr style="width: 70%; margin-left: 0%">
     

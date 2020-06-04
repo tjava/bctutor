@@ -8,11 +8,13 @@ from .models import Course, Userdetail
 
 #@login_required(login_url='login')
 def dashboard(request):
-    id = request.session['id']
-    allcourses = Course.objects.all()
-    userdetail = Userdetail.objects.get(user_id=id)
-    return render(request, "user/dashboard.html", {'allcourses':allcourses, 'userdetail':userdetail})
-
+    if request.user.is_authenticated:
+        id = request.session['id']
+        allcourses = Course.objects.all()
+        userdetail = Userdetail.objects.get(user_id=id)
+        return render(request, "user/dashboard.html", {'allcourses':allcourses, 'userdetail':userdetail})
+    else:
+        return redirect('login')
 
 
 def becomeinstructor(request):
@@ -94,20 +96,23 @@ def editprofile(request):
 
 
 def newcourse(request):
-    if request.method == 'POST':
-        user_id = request.session['id']
-        title = request.POST['title']
-        image = request.FILES['image']
-        description = request.POST['description']
-        price = request.POST['price']
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            user_id = request.session['id']
+            title = request.POST['title']
+            image = request.FILES['image']
+            description = request.POST['description']
+            price = request.POST['price']
 
-        course = Course(user_id=user_id, title=title, image=image, description=description, price=price)
-        course.save()
-        messages.info(request, 'New course succesfully added')
-        return redirect('allcourses')
+            course = Course(user_id=user_id, title=title, image=image, description=description, price=price)
+            course.save()
+            messages.info(request, 'New course succesfully added')
+            return redirect('allcourses')
 
+        else:
+            return render(request, "user/newcourse.html")
     else:
-        return render(request, "user/newcourse.html")
+        return redirect('login')
 
 
 
